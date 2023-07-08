@@ -1,21 +1,16 @@
-// Filter, map, reduce
+// Filter -> Sempre retorna um array, com a mesma quantidade de elementos ou menos.
 
 // Retorne os números maiores que 10
 const numeros = [5, 50, 80, 1, 2 , 3, 5, 8, 7, 11, 15, 22, 27];
-const retorne = numeros.filter([] >=10);
-console.log(retorne);
+const numerosFiltrados = numeros.filter(valor => valor >10);    // Retornando o valor usando função CallBack com arrow function (curta).
+
+/*function callbackFilter(valor) {
+    return valor > 10;
+}*/ // Retornando valor usando função CallBack (longa).
+
+//console.log(numerosFiltrados);
 
 
-
-
-
-
-
-
-
-// Retorne as pessoas que tem o nome com 5 letras ou mais
-// Retorne as pessoas com mais de 50 anos
-// Retorne as pessoas cujo nome termina com a
 const pessoas = [
     {nome: 'Luiz', idade: 62 },
     {nome: 'Maria', idade: 23 },
@@ -24,3 +19,17 @@ const pessoas = [
     {nome: 'Rosana', idade: 32 },
     {nome: 'Wallace', idade: 47 },
 ];
+    // Retorne as pessoas que tem o nome com 5 letras ou mais
+const pessoasComNomeGrande = pessoas.filter(obj => obj.nome.length >= 7);
+console.log(pessoasComNomeGrande);
+
+    // Retorne as pessoas com mais de 50 anos
+const pessoasIdade = pessoas.filter(obj => obj.idade > 50);
+console.log(pessoasIdade);
+
+    // Retorne as pessoas cujo nome termina com a
+const pessoasTerminaA = pessoas.filter(obj => {
+    return obj.nome.toLowerCase().endsWith('a');
+});
+console.log(pessoasTerminaA);
+
