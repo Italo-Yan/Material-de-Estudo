@@ -1,3 +1,4 @@
+// Remove tudo que não seja número
 function ValidaCPF(cpfEnviado) {
     Object.defineProperty(this, 'cpfLimpo', {
         enumerable: true,
@@ -7,6 +8,7 @@ function ValidaCPF(cpfEnviado) {
     });
 }
 
+    // Faz a validação do CPF
 ValidaCPF.prototype.valida = function() {
     if(typeof this.cpfLimpo === 'undefined') return false;
     if(this.cpfLimpo.length !== 11) return false;
@@ -20,6 +22,7 @@ ValidaCPF.prototype.valida = function() {
     return novoCpf === this.cpfLimpo;
 };
 
+    // Verifica o CPF está correto e retorna ele em string
 ValidaCPF.prototype.criaDigito = function(cpfParcial) {
     const cpfArray = Array.from(cpfParcial);
 
@@ -34,6 +37,7 @@ ValidaCPF.prototype.criaDigito = function(cpfParcial) {
     return digito > 9 ? '0' : String (digito);
 };
 
+    // Evita a repetições de números no CPF
 ValidaCPF.prototype.isSequencia = function() {
     const sequencia = this.cpfLimpo[0].repeat(this.cpfLimpo.length);
     return sequencia === this.cpfLimpo;
